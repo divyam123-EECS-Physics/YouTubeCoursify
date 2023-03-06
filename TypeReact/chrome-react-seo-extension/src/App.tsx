@@ -1,20 +1,21 @@
 import React from 'react';
 import './App.css';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+import OptionsPage from './OptionsPage';
+import { Route, Routes } from 'react-router-dom';
+import Popup from './Popup';
+import NotesPage from './NotesPage';
+
 
 function App() {
   return (
     <div className="App">
       <header className="Extension Pop-Up">
-      <Stack spacing={2} direction="column">
-        <Button variant="contained">Options</Button>
-        <Button variant="contained">Notes</Button>
-        <FormControlLabel control={<Switch defaultChecked />} label="Study Mode" />
-      </Stack>
+      <Routes>
+        {/* TODO: Link Notes page */}
+        <Route path="/" element={<Popup />} />
+        <Route path="/OptionsPage" element={<OptionsPage />} />
+        <Route path="/NotesPage" element={<NotesPage />} />
+      </Routes>
       </header>
     </div>
   );
