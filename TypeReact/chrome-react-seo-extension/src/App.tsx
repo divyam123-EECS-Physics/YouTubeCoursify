@@ -9,6 +9,7 @@ import CreateCourse from "./CreateCourse";
 import CreateUser from './CreateUser';
 import Course_page from './CoursePage';
 import UserCourses from './UserCourses';
+import TemplateCreator from './TemplateCreator';
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
         <Route path="/CreateCourse" element={<CreateCourse />} />
         <Route path="/UserCourses" element={<UserCourses />} />
         <Route path="/course_page/:userid/:course" element={<Course_page />} />
+        <Route path="/TemplateCreator" element={<TemplateCreator/>} />
       </Routes>
       </header>
     </div>
