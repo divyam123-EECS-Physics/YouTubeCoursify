@@ -5,16 +5,23 @@ import { Route, Routes } from 'react-router-dom';
 import Popup from './Popup';
 import NotesPage from './NotesPage';
 import Template from './Template';
-
-
+import CreateCourse from "./CreateCourse";
+import CreateUser from './CreateUser';
+import Course_page from './CoursePage';
+import UserCourses from './UserCourses';
 function App() {
   return (
     <div className="App">
       <header className="Extension Pop-Up">
       <Routes>
-        <Route path="/" element={<Template />} />
+        <Route path="/" element={<Popup />} />
+        <Route path="/CreateUser" element={<CreateUser />} />
         <Route path="/OptionsPage" element={<OptionsPage />} />
         <Route path="/NotesPage" element={<NotesPage />} />
+        <Route path="/Template" element={<Template />} />
+        <Route path="/CreateCourse" element={<CreateCourse />} />
+        <Route path="/UserCourses" element={<UserCourses />} />
+        <Route path="/course_page/:userid/:course" element={<Course_page />} />
       </Routes>
       </header>
     </div>

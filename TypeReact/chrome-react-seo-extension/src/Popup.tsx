@@ -7,8 +7,17 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import OptionsPage from './OptionsPage';
 import {Link} from 'react-router-dom';
+import $ from "jquery"; 
+
+
 
 function Popup() {
+      $.ajax({
+        type:'GET',
+        url: 'http://127.0.0.1:8000/simple_call/',
+    })
+
+
   return (
     <div className="Pop-Up">
       <header className="Extension Pop-Up">
