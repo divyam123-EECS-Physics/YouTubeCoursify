@@ -70,7 +70,6 @@ export default function Template() {
             <Typography variant="subtitle1" gutterBottom>Description</Typography>
             <Typography variant="h4" gutterBottom>Schedule</Typography>
             <BasicTable />
-
         </>
     )
     
