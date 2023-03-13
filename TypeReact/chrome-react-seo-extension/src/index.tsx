@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import HomePage from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from 'react-router-dom';
+// import {BrowserRouter} from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 // TODO: Pages are currently not "linked", extension page and options page are seperate
 const root = ReactDOM.createRoot(
@@ -11,9 +12,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <HomePage />
-    </BrowserRouter>
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
   </React.StrictMode>
 );
 

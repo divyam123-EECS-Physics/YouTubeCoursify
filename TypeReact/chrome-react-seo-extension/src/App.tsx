@@ -10,10 +10,14 @@ import CreateUser from './CreateUser';
 import Course_page from './CoursePage';
 import UserCourses from './UserCourses';
 import TemplateCreator from './TemplateCreator';
+import { Typography } from '@mui/material';
+// import { Router } from 'react-chrome-extension-router';
+
 function App() {
   return (
     <div className="App">
       <header className="Extension Pop-Up">
+        {/* <Popup/> */}
       <Routes>
         <Route path="/" element={<Popup />} />
         <Route path="/CreateUser" element={<CreateUser />} />
