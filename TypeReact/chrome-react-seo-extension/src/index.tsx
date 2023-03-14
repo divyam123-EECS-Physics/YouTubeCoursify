@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import TemplateCreator from './TemplateCreator';
 import reportWebVitals from './reportWebVitals';
 // import {BrowserRouter} from 'react-router-dom';
 import { MemoryRouter } from 'react-router-dom';
@@ -13,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <MemoryRouter>
-      <App />
+      <TemplateCreator />
     </MemoryRouter>
   </React.StrictMode>
 );
