@@ -10,14 +10,21 @@ import CreateUser from './CreateUser';
 import Course_page from './CoursePage';
 import UserCourses from './UserCourses';
 import TemplateCreator from './TemplateCreator';
+import Login from './Login';
+import CreatedCourses from './CreatedCourses';
+import EnrolledCourses from './EnrolledCourses';
 function App() {
   return (
     <div className="App">
       <header className="Extension Pop-Up">
       <Routes>
         <Route path="/" element={<Popup />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/CreateUser" element={<CreateUser />} />
-        <Route path="/OptionsPage" element={<OptionsPage />} />
+        <Route path="/OptionsPage/:userid" element={<OptionsPage />} />
+        {/* <Route path="/OptionsPage" element={<OptionsPage />} /> */}
+        <Route path="/CreatedCourses/:userid" element={<CreatedCourses />} />
+        <Route path="/EnrolledCourses/:userid" element={<EnrolledCourses />} />
         <Route path="/NotesPage" element={<NotesPage />} />
         <Route path="/Template" element={<Template />} />
         <Route path="/CreateCourse" element={<CreateCourse />} />
