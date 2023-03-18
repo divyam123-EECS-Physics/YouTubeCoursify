@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import TemplateCreator from './TemplateCreator';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 // import { MemoryRouter } from 'react-router-dom';
@@ -13,9 +14,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+<<<<<<< HEAD
     <BrowserRouter>
       <App />
     </BrowserRouter>
+=======
+    <MemoryRouter>
+      <TemplateCreator />
+    </MemoryRouter>
+>>>>>>> 40f58756fd7b442eef12c7664c5c7ca747abccb0
   </React.StrictMode>
 );
 
