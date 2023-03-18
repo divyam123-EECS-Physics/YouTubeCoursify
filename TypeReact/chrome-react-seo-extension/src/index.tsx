@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import TemplateCreator from './TemplateCreator';
 import reportWebVitals from './reportWebVitals';
-// import {BrowserRouter} from 'react-router-dom';
-import { MemoryRouter } from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
+// import { MemoryRouter } from 'react-router-dom';
+import TemplateCreator from './TemplateCreator';
 
 // TODO: Pages are currently not "linked", extension page and options page are seperate
 const root = ReactDOM.createRoot(
@@ -12,9 +14,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <MemoryRouter>
+<<<<<<< HEAD
+    <BrowserRouter>
       <App />
+    </BrowserRouter>
+=======
+    <MemoryRouter>
+      <TemplateCreator />
     </MemoryRouter>
+>>>>>>> 40f58756fd7b442eef12c7664c5c7ca747abccb0
   </React.StrictMode>
 );
 

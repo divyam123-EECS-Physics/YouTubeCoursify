@@ -24,6 +24,7 @@ function Popup() {
       <Stack spacing={2} direction="column">
         <Link to="/OptionsPage"><Button variant="contained">Options</Button></Link> 
         <Link to="/NotesPage"><Button variant="contained">Notes</Button></Link>
+        
         <FormControlLabel control={<Switch defaultChecked />} label="Study Mode" />
       </Stack>
       </header>
