@@ -50,6 +50,13 @@ function BasicTable() {
     setRows((prevRows) => [...prevRows, createData(week_number, topic_, assignment_ )]);
   };
 
+
+  const deleteRow = () => {
+    const temp = [...rows];
+    temp.splice(-1);
+    setRows(temp);
+  };
+
   return (
     <>
       <Stack direction="row" spacing={1} sx={{mt: 5}}>
@@ -59,6 +66,9 @@ function BasicTable() {
         {/* //TODO: clear text field once row is */}
         <Button variant="contained" size="small" onClick={handleAddRow}>
           Add row
+        </Button>
+        <Button variant="contained" size="small" onClick={deleteRow}>
+          Delete Row 
         </Button>
       </Stack>
       {/* //TODO: fix spacing on here*/}
