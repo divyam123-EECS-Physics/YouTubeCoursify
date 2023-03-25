@@ -63,7 +63,16 @@ class courses_temp(models.Model):
     course_name = models.CharField(max_length=50)
     creator = models.ForeignKey(user_creator, on_delete=models.DO_NOTHING, related_name='created_courses')
     students = models.ManyToManyField(user_student, related_name='enrolled_courses')
-
+    # description = ##text field
     def __str__(self):
         return self.course_name
-    
+
+# class course_modules_temp(models.Model):
+#     parent_course = models.ForeignKey(courses_temp)
+#     week
+#     topci
+#     vidoe
+#     readingnotexs
+#     assignemnt
+#     qui
+
