@@ -13,12 +13,12 @@ import CardHeader from '@mui/material/CardHeader';
 export default function EnrolledCourses() {
     
     const courseList = [
-        {name:"Kyle Hana", description: "build a foundation"},
-        {name:"Koharu", description: "understand body-awareness"},
-        {name:"Bam Martin", description: "improve footwork"},
-        {name:"Bailey Sok", description: "timing and control"},
-        {name:"Nick Joseph", description: "add power"},
-        {name:"Chris Martin", description: "develop musicality"},        
+        {name:"Kyle Hand", description: "build a foundation"},
+        {name:"Konohamaru", description: "understand body-awareness"},
+        {name:"Bam Martian", description: "improve footwork"},
+        {name:"Bailey Socks", description: "timing and control"},
+        {name:"Joseph", description: "add power"},
+        {name:"Chris Martian", description: "develop musicality"},        
     ];
 
     // TODO: change path name
