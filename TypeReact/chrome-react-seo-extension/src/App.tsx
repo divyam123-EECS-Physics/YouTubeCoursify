@@ -11,6 +11,7 @@ import Course_page from './CoursePage';
 import UserCourses from './UserCourses';
 import TemplateCreator from './TemplateCreator';
 import { Typography } from '@mui/material';
+import EnrolledCourses from './EnrolledCourses';
 // import { Router } from 'react-chrome-extension-router';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/UserCourses" element={<UserCourses />} />
         <Route path="/course_page/:userid/:course" element={<Course_page />} />
         <Route path="/TemplateCreator" element={<TemplateCreator/>} />
+        <Route path="/EnrolledCourses" element={<EnrolledCourses/>} />
       </Routes>
       </header>
     </div>

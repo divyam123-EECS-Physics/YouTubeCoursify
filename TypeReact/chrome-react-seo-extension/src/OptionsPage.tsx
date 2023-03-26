@@ -9,7 +9,7 @@ export default function OptionsPage() {
         <Stack spacing={2} direction="column">
             <TextField id="outlined-basic" label="Outlined" variant="outlined" />
             <Link to="/UserCourses"><Button variant="contained">My Created Courses</Button></Link>
-            <Link to="/CreatedCourses"><Button variant="contained">Enrolled Courses</Button></Link>
+            <Link to="/EnrolledCourses"><Button variant="contained">Enrolled Courses</Button></Link>
         </Stack>
     )
 }
