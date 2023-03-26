@@ -59,11 +59,24 @@ def add_course(request):
         return JsonResponse({"add_course":"done"}, safe=False)
 
 @csrf_exempt
-def get_courses(request):
+def get_created_courses(request):
     if request.method == 'GET':
+        print("INSIDE GET CREATOR")
         user_id = request.GET['creator_id']
-        user = ytc_user.objects.get(user_name = user_id)
-        all_courses = user.courses.sall()
+        user = ytc_user.objects.get(user_id = user_id)
+        all_courses = user.creator.created_courses.all()
+        print(user.user_name, all_courses.values())
+        course_names = []
+        for course in all_courses:
+            if course not in set(course_names):
+                course_names.append(course.course_name)
+        return JsonResponse({"courses": course_names}, safe=False)
+@csrf_exempt
+def get_enrolled_courses(request):
+    if request.method == 'GET':
+        user_id = request.GET['student_id']
+        user = ytc_user.objects.get(user_id = user_id)
+        all_courses = user.student.enrolled_courses.all()
         print(user.user_name, all_courses.values())
         course_names = []
         for course in all_courses:

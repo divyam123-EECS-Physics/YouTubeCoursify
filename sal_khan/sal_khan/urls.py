@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from atwell.views import simple_call
 from atwell.views import csrf
-from atwell.views import add_course, add_user, get_courses, login
+from atwell.views import add_course, add_user, get_created_courses, login, get_enrolled_courses
 from atwell.views import ping
 
 urlpatterns = [
@@ -27,7 +27,8 @@ urlpatterns = [
     path("add_course/", add_course),
     path("add_user/", add_user),
     path("login/", add_user),
-    path("get_courses/", get_courses),
+    path("get_created_courses/", get_created_courses),
+    path("get_enrolled_courses/", get_enrolled_courses),
     path("csrf/", csrf),
     path("ping/",ping)
 ]
