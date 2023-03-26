@@ -10,15 +10,17 @@ import CardContent from '@mui/material/CardContent';
 import { CardActionArea } from '@mui/material';
 
 export default function EnrolledCourses() {
+    
     const courseList = [
-        {name:"Bailey Sok"},
-        {name:"Bam Martin"},
-        {name:"Chris Martin"},
-        {name:"Nick Joseph"},
-        {name:"Kyle Hanagami"},
-        {name:"Koharu"},
-        
+        {name:"Kyle Hanagami", description: "build a foundation"},
+        {name:"Koharu", description: "understanding body-awareness"},
+        {name:"Bam Martin", description: "improve footwork"},
+        {name:"Bailey Sok", description: "timing and control"},
+        {name:"Nick Joseph", description: "add power"},
+        {name:"Chris Martin", description: "develop musicality"},        
     ];
+
+    // TODO: change path name
     const path = "/OptionsPage";
     
     return (
@@ -27,15 +29,18 @@ export default function EnrolledCourses() {
             <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
 
                 {courseList.map((course) => 
-                    // TODO: change path name
+                    
                     // *textDecor= none gets rids of underline from text
                     <Link to={path} style={{ textDecoration: 'none' }}>
-                        <Card variant="outlined" sx= {{padding: 1, margin: 1}}>
+                        <Card variant="outlined" sx= {{padding: 1, margin: 1.5, width: 200, height: 120}}>
                             {/* //! this makes the whole card clickable */}
                             <CardActionArea>
                                 <CardContent>
-                                    <Typography variant="h5" color="text.secondary" gutterBottom>
+                                    <Typography variant="h6" color="text.primary" gutterBottom>
                                     {course.name}
+                                    </Typography> 
+                                    <Typography variant="body2" color="text.secondary" gutterBottom>
+                                    {course.description}
                                     </Typography>   
                                 </CardContent>
                             </CardActionArea>
