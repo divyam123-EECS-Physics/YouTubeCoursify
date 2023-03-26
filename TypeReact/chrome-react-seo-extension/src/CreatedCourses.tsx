@@ -12,7 +12,8 @@ let user_id = '';
 export default function CreatedCourses() {
     const userId = useParams();
     console.log("userId", userId);
-
+    // const enrolled_courses = user
+    
     let navigate = useNavigate();
     if (csrfToken == '') {
         $.ajax(
@@ -31,6 +32,19 @@ export default function CreatedCourses() {
             }
         });
     };
+
+    $.ajax(
+        {
+            type: 'GET',
+            url: 'http://127.0.0.1:8000/get_created_courses/',
+            data: { creator_id: userId['userid'],
+                    csrfmiddlewaretoken: csrfToken
+                  }
+            
+        }
+    ).done(function(data) {
+        console.log(data)
+    });
 
     
     return (

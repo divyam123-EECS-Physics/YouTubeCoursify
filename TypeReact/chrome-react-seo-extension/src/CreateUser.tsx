@@ -2,7 +2,7 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import {Link} from 'react-router-dom'; 
+import {useNavigate, Link} from 'react-router-dom'; 
 import Typography from '@mui/material/Typography';
 import {useState} from 'react';
 import $ from "jquery"; 
@@ -10,6 +10,8 @@ import $ from "jquery";
 let courses  = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 let csrfToken = '';
 export default function CreateUser() {
+    let navigate = useNavigate();
+
     if (csrfToken == '') {
         $.ajax(
             {
@@ -56,6 +58,7 @@ export default function CreateUser() {
         ).done(function(data) {
             csrfToken = data['token'];
             console.log('token', csrfToken);
+            navigate("/Login");
 
         }); 
     };

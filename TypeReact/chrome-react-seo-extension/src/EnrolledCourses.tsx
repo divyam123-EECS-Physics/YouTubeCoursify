@@ -29,7 +29,20 @@ export default function EnrolledCourses() {
                 "X-CSRFToken": csrfToken
             }
         });
-    }
+    }   
+
+    $.ajax(
+        {
+            type: 'GET',
+            url: 'http://127.0.0.1:8000/get_enrolled_courses/',
+            data: { student_id: userId['userid'],
+                    csrfmiddlewaretoken: csrfToken
+                  }
+            
+        }
+    ).done(function(data) {
+        console.log(data)
+    });
 
     
     return (
