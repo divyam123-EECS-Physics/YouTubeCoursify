@@ -13,6 +13,7 @@ import TemplateCreator from './TemplateCreator';
 import Login from './Login';
 import CreatedCourses from './CreatedCourses';
 import EnrolledCourses from './EnrolledCourses';
+import EnrolledCourse from './EnrolledCourse';
 function App() {
   return (
     <div className="App">
@@ -24,9 +25,9 @@ function App() {
         <Route path="/OptionsPage/:userid" element={<OptionsPage />} />
         {/* <Route path="/OptionsPage" element={<OptionsPage />} /> */}
         <Route path="/CreatedCourses/:userid" element={<CreatedCourses />} />
-        <Route path="/CreatedCourseTemplate/:userid/:course" element={<Template />} />
+        <Route path="/CreatedCourseTemplate/:userid/:course_id" element={<CreateCourse />} />
         <Route path="/EnrolledCourses/:userid" element={<EnrolledCourses />} />
-        <Route path="/EnrolledCourseTemplate/:userid/:course" element={<Template />} />
+        <Route path="/EnrolledCourseTemplate/:userid/:course_id" element={<EnrolledCourse />} />
         <Route path="/NotesPage" element={<NotesPage />} />
         <Route path="/Template" element={<Template />} />
         <Route path="/CreateCourse" element={<CreateCourse />} />

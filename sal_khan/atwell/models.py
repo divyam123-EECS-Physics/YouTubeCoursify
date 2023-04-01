@@ -30,6 +30,14 @@ class CustomAccountManager(BaseUserManager):
 
         return user
 
+def create_class(course_name, description, creator):
+        token = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
+
+        
+        course = courses_temp(course_name = course_name, course_id = token, creator = creator)        
+        course.save()
+
+        return course
 
 
 class ytc_user(AbstractBaseUser, PermissionsMixin):
@@ -61,18 +69,20 @@ class user_student(models.Model):
 class courses_temp(models.Model):
 
     course_name = models.CharField(max_length=50)
+    course_id = models.CharField(max_length=500, default='null')
+    description = models.TextField(default='')
     creator = models.ForeignKey(user_creator, on_delete=models.DO_NOTHING, related_name='created_courses')
     students = models.ManyToManyField(user_student, related_name='enrolled_courses')
     # description = ##text field
     def __str__(self):
         return self.course_name
 
-# class course_modules_temp(models.Model):
-#     parent_course = models.ForeignKey(courses_temp)
-#     week
-#     topci
-#     vidoe
-#     readingnotexs
-#     assignemnt
-#     qui
-
+class course_modules(models.Model):
+    parent_course = models.ForeignKey(courses_temp, on_delete=models.DO_NOTHING, related_name='modules')
+    week = models.IntegerField(default = 0)
+    topics = models.CharField(max_length = 150)
+    video = models.CharField(max_length = 150)
+    notes_link = models.CharField(max_length = 150)
+    assignment_link = models.CharField(max_length = 150)
+    quiz_link = models.CharField(max_length=150)
+    
