@@ -19,8 +19,9 @@ function App() {
     <div className="App">
       <header className="Extension Pop-Up">
       <Routes>
-        <Route path="/" element={<Popup />} />
-        <Route path="/Login" element={<Login />} />
+        {/* <Route path="/" element={<Popup />} /> */}
+        {/* <Route path="/Login" element={<Login />} /> */}
+        <Route path="/" element={<Login />} />
         <Route path="/CreateUser" element={<CreateUser />} />
         <Route path="/OptionsPage/:userid" element={<OptionsPage />} />
         {/* <Route path="/OptionsPage" element={<OptionsPage />} /> */}
