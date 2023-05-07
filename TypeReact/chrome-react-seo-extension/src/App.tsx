@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import OptionsPage from './OptionsPage';
 import { Route, Routes } from 'react-router-dom';
@@ -11,7 +10,7 @@ import Course_page from './CoursePage';
 import UserCourses from './UserCourses';
 import TemplateCreator from './TemplateCreator';
 import EnrolledCourses from './EnrolledCourses';
-// import { Router } from 'react-chrome-extension-router';
+
 
 function App() {
   return (

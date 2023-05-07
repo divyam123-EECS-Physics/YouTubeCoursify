@@ -2,8 +2,6 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import {Link} from 'react-router-dom'; 
-import Typography from '@mui/material/Typography';
 import {useState} from 'react';
 import $ from "jquery"; 
 import Navbar from './Navbar';
