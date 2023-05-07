@@ -4,8 +4,12 @@ import {Link} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Navbar from './Navbar';
 
+
 export default function OptionsPage() {
+    const userId = useParams();
+    console.log("userId",userId);
     return (
+
         <Box>
             <Navbar title="Options" home="/" back="/" />
                 <Stack spacing={2} direction="row" justifyContent="center" sx={{margin:"20px"}}>

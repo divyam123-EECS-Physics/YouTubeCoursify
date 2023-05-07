@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import Navbar from './Navbar';
 import Grid from '@mui/material/Grid';
 
+
 function BasicTable() {
   function createData(
     week: string,
@@ -131,8 +132,11 @@ function BasicTable() {
 
 export default function TemplateCreator() { 
     const [class_name, class_name_update] = useState('Course Name');
+
     const [description, description_update] = useState('Course Description');
 
+
+    
     function update_class_name(event: React.ChangeEvent<HTMLInputElement>) {
       class_name_update(event.target.value);
     };
@@ -166,5 +170,3 @@ export default function TemplateCreator() {
         </>
     )
 }
-
-

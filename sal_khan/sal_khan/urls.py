@@ -17,15 +17,21 @@ from django.contrib import admin
 from django.urls import path
 from atwell.views import simple_call
 from atwell.views import csrf
-from atwell.views import add_course, add_user, get_courses
+from atwell.views import add_course, add_user, get_created_courses, login, get_enrolled_courses,get_modules, modify_course,add_module
 from atwell.views import ping
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("simple_call/", simple_call),
+    path("login/", login),
     path("add_course/", add_course),
     path("add_user/", add_user),
-    path("get_courses/", get_courses),
+    path("login/", add_user),
+    path("get_modules/", get_modules),
+    path("modify_course/", modify_course),
+    path("add_module/",add_module),
+    path("get_created_courses/", get_created_courses),
+    path("get_enrolled_courses/", get_enrolled_courses),
     path("csrf/", csrf),
     path("ping/",ping)
 ]
