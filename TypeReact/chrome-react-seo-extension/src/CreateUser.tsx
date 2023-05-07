@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import {useState} from 'react';
 import $ from "jquery"; 
+import Navbar from './Navbar';
 
 let courses  = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 let csrfToken = '';
@@ -52,11 +53,14 @@ export default function CreateUser() {
         ); 
     };
     return (
-        <Stack spacing={2} direction="column">
-            <TextField id = "name_input" label = 'username' defaultValue="name" value = {user_details[0]} onChange = {update_name}/>
-            <TextField id = "pwd_input" label = 'password' defaultValue="pwd" value = {user_details[1]} onChange = {update_pwd}/>
-            <Button onClick={update_details} variant="contained">submit</Button>
-        </Stack>
+        <>
+            <Navbar title="Create User" home="/" back="/" />
+            <Stack spacing={2} direction="column" sx={{m:'20px'}}>
+                <TextField id = "name_input" label = 'Username' defaultValue="name" value = {user_details[0]} onChange = {update_name} sx={{ width:"290px"}}/>
+                <TextField id = "pwd_input" label = 'Password' defaultValue="pwd" value = {user_details[1]} onChange = {update_pwd} sx={{ width:"290px"}}/>
+                <Button onClick={update_details} variant="contained" sx={{ width:"90px", backgroundColor:"#4681f4"}}>Submit</Button>
+            </Stack>
+        </>
     )
 }
     

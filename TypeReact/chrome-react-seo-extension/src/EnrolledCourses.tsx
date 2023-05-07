@@ -9,6 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { CardActionArea } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
+import Navbar from './Navbar';
 
 export default function EnrolledCourses() {
     
@@ -21,20 +22,17 @@ export default function EnrolledCourses() {
         {name:"Chris Martian", description: "develop musicality"},        
     ];
 
-    // TODO: change path name
     const path = "/OptionsPage";
     
     return (
         <>
-            <Typography variant="h2" sx= {{paddingBottom: 3, margin: 1}}>Enrolled Courses</Typography>
+            <Navbar title="Enrolled Courses" home="/" back="/OptionsPage" />
             <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
 
                 {courseList.map((course) => 
-                    // TODO: FIX MARGINS AND WIDTH
                     // *textDecor= none gets rids of underline from text
                     <Link to={path} style={{ textDecoration: 'none' }}>
-                        <Card  sx= {{margin: 1.5, width: 200, height: 120}}>
-                            {/* //! this makes the whole card clickable */}
+                        <Card  sx= {{margin: 1.5, width: 300, height: 220}}>
                             <CardActionArea>
                                 <CardContent>
                                     <CardHeader sx={{paddingTop:0}} title= {course.name} /> 
