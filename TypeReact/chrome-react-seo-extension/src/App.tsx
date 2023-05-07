@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import OptionsPage from './OptionsPage';
 import { Route, Routes } from 'react-router-dom';
@@ -14,6 +13,7 @@ import Login from './Login';
 import CreatedCourses from './CreatedCourses';
 import EnrolledCourses from './EnrolledCourses';
 import EnrolledCourse from './EnrolledCourse';
+
 function App() {
   return (
     <div className="App">

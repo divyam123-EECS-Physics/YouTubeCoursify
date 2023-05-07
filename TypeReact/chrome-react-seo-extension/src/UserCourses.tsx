@@ -6,12 +6,14 @@ import {Link} from 'react-router-dom';
 import {useState} from 'react';
 import $ from "jquery"; 
 import { TableBody } from '@mui/material';
-import Typography from '@mui/material/Typography';
 import Table from '@mui/material/Table';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Navbar from './Navbar';
+import Paper from '@mui/material/Paper';
+
 
 let courses  = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 let csrfToken = '';
@@ -60,17 +62,20 @@ export default function UserCourses() {
     };
 
     return (
-        <div>
-            <Stack spacing={2} direction="column">
-                <TextField id = "name_input" label = 'username' defaultValue="name" value = {user_details} onChange = {update_name}/>
-                <Button onClick={get_user_courses} variant="contained">submit</Button>
+        
+        <>
+            <Navbar title="My Created Courses" home="/" back="/OptionsPage" />
+            <Stack spacing={2} direction="row" sx={{m: "20px" }}>
+                <TextField id = "name_input" label = 'Username' defaultValue="name" value = {user_details} onChange = {update_name}/>
+                <Button onClick={get_user_courses} variant="contained" sx={{backgroundColor:"#4681f4"}}>Get Courses</Button>
             </Stack>
-            <TableContainer>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            {/* //TODO: fix spacing on page */}
+            <TableContainer component={Paper}>
+                <Table aria-label="simple table" >
                     <TableHead>
                         <TableRow>
-                        <TableCell>Course name</TableCell>
-                        <TableCell align="right">Course Links</TableCell>
+                            <TableCell variant="head">Course Name</TableCell>
+                            <TableCell align="right">Course Links</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -87,7 +92,7 @@ export default function UserCourses() {
                     </TableBody>
                     </Table>
                 </TableContainer>
-        </div>
+        </>
     )
 }
     

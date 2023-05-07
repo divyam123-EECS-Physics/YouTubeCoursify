@@ -10,13 +10,11 @@ import Paper from '@mui/material/Paper';
 import {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { DataGrid, GridToolbarContainer, useGridApiRef } from '@mui/x-data-grid';
-import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import {useParams} from 'react-router-dom';
+import Navbar from './Navbar';
+import Grid from '@mui/material/Grid';
 
-// TODO: need to connect this page from a main page
-// TODO: add vertical lines???
+
 function BasicTable() {
   function createData(
     week: string,
@@ -29,7 +27,6 @@ function BasicTable() {
     return {week, topic, video, reading_notes, assignment, quizzes};
   }
   
-  // TODO: fix the create data placeholder
   const [rows, setRows] = React.useState(() => [
     createData("Week 0", 'Intro', 'some_url', 'read notes', 'problem set', 'google forms quiz')
   ]);
@@ -66,9 +63,15 @@ function BasicTable() {
   };
 
 
-
   const handleAddRow = () => {
     setRows((prevRows) => [...prevRows, createData(week_number, topic_, video_url, reading_notes_, assignment_,  quizzes_ )]);
+    week_number_update('');
+    topic_update('');
+    assignment_update('');
+    video_url_update('');
+    reading_notes_update('');
+    reading_notes_update('');
+    quizzes_update('');
   };
 
 
@@ -80,30 +83,28 @@ function BasicTable() {
 
   return (
     <>
-      <Stack direction="row" spacing={1} sx={{mt: 5}}>
+      <Stack direction="row" justifyContent="center" spacing={1} sx={{m: 2}}>
         <TextField id = "week_input" label = 'Week' value = {week_number} onChange = {update_week_number}/>
         <TextField id = "topic_input" label = 'Topic' value = {topic_} onChange = {update_topic}/>
         <TextField id = "week_input" label = 'Video' value = {video_url} onChange = {update_video_url}/>
         <TextField id = "topic_input" label = 'Reading Notes' value = {reading_notes_} onChange = {update_reading_notes}/>
         <TextField id = "assignment_input" label = 'Assignment' value = {assignment_} onChange = {update_assignment}/>
         <TextField id = "assignment_input" label = 'Quiz' value = {quizzes_} onChange = {update_quizzes}/>
-        {/* //TODO: clear text field once row is */}
-        <Button variant="contained" size="small" onClick={handleAddRow}>
+        <Button variant="contained" size="small" onClick={handleAddRow} sx={{backgroundColor:"#4681f4"}}>
           Add row
         </Button>
-        <Button variant="contained" size="small" onClick={deleteRow}>
+        <Button variant="contained" size="small" onClick={deleteRow} sx={{backgroundColor:"#4681f4"}}>
           Delete Row 
         </Button>
       </Stack>
-      {/* //TODO: fix spacing on here*/}
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 450 }} aria-label="simple table">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Week </TableCell>
               <TableCell align="right">Topic</TableCell>
               <TableCell align="right">Video</TableCell>
-              <TableCell>Reading Notes </TableCell>
+              <TableCell align="right">Reading Notes </TableCell>
               <TableCell align="right">Assignment</TableCell>
               <TableCell align="right">Quiz</TableCell>
             </TableRow>
@@ -130,9 +131,8 @@ function BasicTable() {
 
 
 export default function TemplateCreator() { 
-    const {userid, course} = useParams();
+    const [class_name, class_name_update] = useState('Course Name');
 
-    const [class_name, class_name_update] = useState('Class Name');
     const [description, description_update] = useState('Course Description');
 
 
@@ -140,17 +140,33 @@ export default function TemplateCreator() {
     function update_class_name(event: React.ChangeEvent<HTMLInputElement>) {
       class_name_update(event.target.value);
     };
+
     function update_class_description(event: React.ChangeEvent<HTMLInputElement>) {
       description_update(event.target.value);
     };
 
     return (
         <>
-            <Typography variant="h3" gutterBottom>{class_name}</Typography>
-            <TextField id = "class_name_input" label = 'classname' value = {class_name} onChange = {update_class_name}/>
-            <Typography variant="h3" gutterBottom>{description}</Typography>
-            <TextField id = "description_input" label = 'description' value = {description} onChange = {update_class_description}/>
-            <BasicTable />
+            <Navbar title="Course Template" home="/" back="/OptionsPage" />
+            <Grid container spacing={7} justifyContent="center">
+              <Grid item >
+                <Typography variant="h4" gutterBottom>{class_name}</Typography>
+                <TextField id = "class_name_input" label = 'Course Name' value = {class_name} onChange = {update_class_name} sx={{width:'300px'}}/>
+              </Grid>
+              <Grid item>
+                <Typography variant="h4" gutterBottom>{description}</Typography>
+              <TextField id = "description_input" label = 'Course Description' value = {description} onChange = {update_class_description} sx={{width:'300px'}}/>
+            
+              </Grid>
+            </Grid>
+            <Grid container justifyContent="center" sx={{width:'95%', marginTop:'50px'}}>
+              <Grid item >
+                <BasicTable />
+              </Grid>
+            </Grid>
+             
+            
+            
         </>
     )
 }
