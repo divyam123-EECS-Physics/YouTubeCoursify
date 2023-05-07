@@ -10,18 +10,25 @@ import CreateUser from './CreateUser';
 import Course_page from './CoursePage';
 import UserCourses from './UserCourses';
 import TemplateCreator from './TemplateCreator';
-import { Typography } from '@mui/material';
+import Login from './Login';
+import CreatedCourses from './CreatedCourses';
 import EnrolledCourses from './EnrolledCourses';
-// import { Router } from 'react-chrome-extension-router';
-
+import EnrolledCourse from './EnrolledCourse';
 function App() {
   return (
     <div className="App">
       <header className="Extension Pop-Up">
       <Routes>
-        <Route path="/" element={<Popup />} />
+        {/* <Route path="/" element={<Popup />} /> */}
+        {/* <Route path="/Login" element={<Login />} /> */}
+        <Route path="/" element={<Login />} />
         <Route path="/CreateUser" element={<CreateUser />} />
-        <Route path="/OptionsPage" element={<OptionsPage />} />
+        <Route path="/OptionsPage/:userid" element={<OptionsPage />} />
+        {/* <Route path="/OptionsPage" element={<OptionsPage />} /> */}
+        <Route path="/CreatedCourses/:userid" element={<CreatedCourses />} />
+        <Route path="/CreatedCourseTemplate/:userid/:course_id" element={<CreateCourse />} />
+        <Route path="/EnrolledCourses/:userid" element={<EnrolledCourses />} />
+        <Route path="/EnrolledCourseTemplate/:userid/:course_id" element={<EnrolledCourse />} />
         <Route path="/NotesPage" element={<NotesPage />} />
         <Route path="/Template" element={<Template />} />
         <Route path="/CreateCourse" element={<CreateCourse />} />

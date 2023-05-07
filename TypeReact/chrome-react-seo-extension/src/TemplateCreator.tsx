@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import { DataGrid, GridToolbarContainer, useGridApiRef } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import {useParams} from 'react-router-dom';
 
 // TODO: need to connect this page from a main page
 // TODO: add vertical lines???
@@ -129,9 +130,13 @@ function BasicTable() {
 
 
 export default function TemplateCreator() { 
+    const {userid, course} = useParams();
+
     const [class_name, class_name_update] = useState('Class Name');
     const [description, description_update] = useState('Course Description');
 
+
+    
     function update_class_name(event: React.ChangeEvent<HTMLInputElement>) {
       class_name_update(event.target.value);
     };
@@ -149,5 +154,3 @@ export default function TemplateCreator() {
         </>
     )
 }
-
-

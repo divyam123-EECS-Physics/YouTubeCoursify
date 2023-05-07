@@ -16,7 +16,7 @@ import $ from "jquery";
 let courses  = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 let csrfToken = '';
 let user_id = '';
-export default function EnrolledCourses() {
+export default function CreatedCourses() {
     const userId = useParams();
     console.log("userId", userId);
 
@@ -53,16 +53,16 @@ export default function EnrolledCourses() {
     useEffect(() => {$.ajax(
             {
                 type: 'GET',
-                url: 'http://127.0.0.1:8000/get_enrolled_courses/',
-                data: { student_id: userId['userid'],
+                url: 'http://127.0.0.1:8000/get_created_courses/',
+                data: { creator_id: userId['userid'],
                         csrfmiddlewaretoken: csrfToken
                       }
             }
         ).done(function(data) {
             const course_name = "";
-            const url = '/EnrolledCourseTemplate/' + userId['userid'] + '/';
+            const url = '/CreatedCourseTemplate/' + userId['userid'] + '/';
             let i = 0;
-            console.log(data['courses'], data['courses'].length);
+            console.log(data);
             // courseList_function(courseList => [...courseList, {name: data['courses'][i], url: url + data['courses'][i]}]);
             let courses = [{name:'', url:''}]
             while (i < data['courses'].length) {
@@ -83,7 +83,7 @@ export default function EnrolledCourses() {
     // courseList = initialize();
     return (
         <>
-            <Typography variant="h2" sx= {{paddingBottom: 3, margin: 1}}>Enrolled Courses</Typography>
+            <Typography variant="h2" sx= {{paddingBottom: 3, margin: 1}}>Create Courses</Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
                 {courseList.map((course_obj) => 
                     // TODO: FIX MARGINS AND WIDTH
